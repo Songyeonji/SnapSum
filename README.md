@@ -154,7 +154,7 @@ Copy
 - **AI 추천기능 강화**: AI가 추출하고 요약한 텍스트를 기반으로 해당 내용에 어울리는 이미지 스타일과 TTS를 추천하는 기능
 
 
-### 시연영
-데스크탑 시연영상[https://youtu.be/LxkLAspCf_U]
-모바일 시연영상[https://youtu.be/WkHibFjuqYQ]
-영상 예시[https://youtube.com/shorts/_nbVJ_bsP1M]
+### 시연영상
+- [**데스크탑 시연 영상**](https://youtu.be/LxkLAspCf_U)
+- [**모바일 시연 영상**](https://youtu.be/WkHibFjuqYQ)
+- [**영상 예시**](https://youtube.com/shorts/_nbVJ_bsP1M)
