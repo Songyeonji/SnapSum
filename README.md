@@ -1,40 +1,154 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+![image](https://github.com/user-attachments/assets/6590d020-228d-450a-82b8-95e915faec10)
 
-## Getting Started
+## 🚀 소개
 
-First, run the development server:
+**SNAPSUM**은 AI 기술을 활용하여 쉽고 빠르게 숏폼 영상을 제작할 수 있는 서비스입니다. 이름에서 알 수 있듯이 'SNAP'(빠르다, 즉각적인)과 'SUM'(요약, 합산)의 결합으로, **"빠르고 즉각적인 요약"** 또는 **"즉석에서 생성되는 콘텐츠"**를 의미합니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+단 몇 초 만에 매력적인 숏폼 콘텐츠를 생성하여 유튜브 쇼츠, 틱톡, 인스타그램 릴스 등에서의 존재감을 강화하세요!
+
+2팀 SUMSQUAD | Elice AI SPARK CAMP (25.03.01)
+
+## ✨ 주요 기능
+
+- **모바일 중심 반응형 웹**: 링크만 붙여넣으면 어디서든 간편하게 영상을 제작할 수 있도록 모바일 위주로 최적화된 레이아웃 제공
+- **링크만 있다면 누구나**: 직접 프롬프트를 작성할 필요 없이 링크만 붙여넣으면 AI가 텍스트를 추출하고 요약한 내용으로 영상 생성
+- **AI가 작성하는 초안**: 사용자가 따로 요약하거나 장면이 전환될 지점을 문단으로 나누지 않아도 AI가 자동으로 텍스트를 요약하고 적절한 전환 구간을 찾아줌
+- **한번에 생성하는 이미지/TTS**: 여러번 프롬프트를 작성할 필요 없이 클릭 한번에 생성되는 이미지와 TTS
+- **다양한 영상 스타일**: 유튜브 쇼츠, 틱톡, 인스타그램 등 원하는 플랫폼에 최적화된 콘텐츠 생성
+
+## 🛠️ 기술 스택
+
+### 프론트엔드
+
+- **프레임워크**: React, Next.js 15 (Pages Router), TypeScript
+- **스타일링**: Tailwind CSS, Styled-components
+- **배포**: Vercel
+- **UI/UX 개발**: 송연지(FE)
+- **주요 기능**: API 연동 및 상태관리, 프론트 배포
+
+### 백엔드
+
+- **서버**: Spring Boot, FastAPI
+- **DB**: MySQL
+- **CI/CD**: Docker, Jenkins
+- **개발 환경**: Elice Cloud, GPU 환경
+- **백엔드 개발**:
+    - 김재협(BE): Fast API를 활용한 동영상 생성 서비스, 비디오 관리 기능 구현, Swagger를 활용한 API 문서화
+    - 소유진(BE): Elice ML API를 활용한 콘텐츠 요약, 문단 별 이미지 생성 서비스 개발, Python Fast API를 활용한 크롤링 서비스 개발
+
+### AI 통합
+
+- **AI 모델**: Elice ML API, ChatGPT, Midjourney
+- **영상 생성**: FFmpeg/Helpy Pro
+- **PM**: 이윤희 - API 문서 분석 및 프롬프트 작성, 요구사항정의서/기능명세서/프로토타입/테스트케이스 작성
+
+## 📁 프로젝트 구조
+
+```markdown
+markdown
+Copy
+* .github                   # GitHub 관련 설정 파일
+* public                    # 정적 파일 저장소
+   * assets                 # 이미지, 아이콘 등 에셋 파일
+   * favicon.ico            # 웹사이트 파비콘
+   * manifest.json          # PWA 매니페스트 파일
+* src                       # 소스 코드
+   * api                    # API 통신 관련 코드
+   * components             # 재사용 가능한 UI 컴포넌트
+   * hooks                  # 커스텀 React 훅
+   * lib                    # 유틸리티 및 헬퍼 함수
+   * pages                  # 페이지 컴포넌트 (Next.js)
+   * services               # 외부 서비스 연동 코드
+   * store                  # 상태 관리 (Redux 등)
+   * styles                 # 글로벌 스타일 및 테마
+   * types                  # TypeScript 타입 정의
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📝 사용 방법 및 워크플로우
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 서비스 플로우차트
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. **랜딩 페이지**: 서비스 소개 및 링크 입력
+2. **메인 페이지**:
+    - 링크를 붙여넣으면 AI가 내용을 크롤링하여 요약 생성
+    - AI가 작성한 초안 확인 및 편집 가능
+    - 이미지 스타일, TTS 설정 선택
+3. **영상 생성 페이지**:
+    - 생성 중 진행 상태 확인
+    - 완성된 영상 미리보기 및 다운로드
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### 사용 프로세스
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. SNAPSUM 웹사이트([https://snapsum.vercel.app/info)에](https://snapsum.vercel.app/info)%EC%97%90) 접속합니다
+2. 콘텐츠를 생성하고 싶은 블로그나 웹 페이지의 링크를 입력합니다
+3. AI가 자동으로 콘텐츠를 분석하고 요약합니다
+4. 원하는 영상 스타일(유튜브 쇼츠, 틱톡 등)을 선택합니다
+5. "생성하기" 버튼을 클릭합니다
+6. 생성된 영상을 확인하고 다운로드할 수 있습니다
 
-## Learn More
+## 🔧 트러블 슈팅
 
-To learn more about Next.js, take a look at the following resources:
+### 프론트엔드 트러블 슈팅
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### useRouteManager: 리프레시 & 무한 루프 해결
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**문제**:
 
-## Deploy on Vercel
+- 기존에는 URL을 기반으로 라우팅 상태를 관리했으나, 현재 사용자가 어느 단계(currentStep)에 있는지 URL을 보고 판단하기 어려웠음
+- 라우터 코드가 복잡해지고 유지보수가 어려워짐
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**해결**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- `localStorage`를 이용해 상태를 관리하도록 변경
+- React의 `useEffect`와 상태 업데이트(`setState`)를 함께 활용
+- 페이지가 로드될 때마다 `localStorage`에서 데이터를 가져와 `setState` 실행
+- 이 과정에서 불필요한 상태 변경이 계속 발생하는 무한 루프 발생 → 무한 루프 방지 로직 구현
+
+**효과**:
+
+- 불필요한 상태 업데이트 방지
+- 무한 루프 문제 해결
+- 라우팅과 상태 관리가 깔끔하게 정리됨
+
+## 📊 비즈니스 가치 및 시장 환경
+
+### 시장 성장성
+
+- 2023-2033년 글로벌 제작 시장 내 글로벌 생성형 AI 시장 규모 지속적 성장 예상
+- 2023년 11.6억 달러에서 2033년 175.3억 달러로 성장 예측 (CAGR 31.2%)
+
+### 소비자 인식 조사
+
+- 영상 콘텐츠 "빠른 접근" 선호: 70%
+- "다양하고 많은 양상을 보고싶다면 쇼츠를 찾는다": 63%
+- "영화, 드라마를 찾기 전에는 유튜브를 자주 본다": 60%
+
+### 핵심 가치
+
+- **시간 및 비용 절감**: 영상 제작 경험이 부족한 블로거도 쉽고 빠르게 영상 제작 가능, ChatGPT 같은 AI 툴을 사용해봤지만 구체적인 활용법을 모르는 사용자에게 적합
+- **1인 미디어 크리에이터 지원**: 유튜브, 틱톡, 인스타그램에서 숏폼을 제작하고 싶은 크리에이터 지원 및 비용기 프로그래밍에 대한 이해 필요 없음
+- **영상 활용의 다양성**: 제작된 영상을 다른 영상의 일부로 사용하거나, 편집 실력이 있는 사용자는 가공을 통해 새로운 영상을 제작 가능
+
+## 🔮 개발 과정과 로드맵
+
+### 개발 프로세스
+
+- **Week 1**:
+    - Meet-up Day: 팀 논의, 디스코드 생성, 스크럼/개발 스케줄링
+    - Ideation & 기획: Elice ML API 문서 분석, 기능 기획
+    - 개발 환경 셋팅: 사용 기술 설정, Git Repository 생성
+- **Week 2**:
+    - 레이아웃 개발: 공통 컴포넌트, 레이아웃 개발, 프론트엔드 API 연동
+    - CI/CD & API 개발: 배포 서버 구축, Swagger 연동 및 배포
+- **Week 3**:
+    - 개발 고도화: 개발 기능 고도화 작업
+    - 최적화: 리소스 최적화, 에러 처리
+    - 테스트케이스 작성: 서비스 QA
+
+### 향후 개발 계획
+
+- **자막 기능 추가**: MVP에서도 구현은 했으나, 자막이 가독성있게 표현되면 관련 로직이 필요할 것 같아 최종 보류
+- **임력한 텍스트로 영상 생성**: 링크 외 사용자가 직접 입력한 텍스트를 AI가 문단을 구분하여 영상 생성
+- **기능한 링크 확장**: 현재 MVP에서는 네이버 블로그 링크만 가능하지만, 향후에는 모든 링크에서 크롤링 시 필터링 기능을 마련하여 적절하게 텍스트를 추출하는 기능으로 고도화
+- **AI 추천기능 강화**: AI가 추출하고 요약한 텍스트를 기반으로 해당 내용에 어울리는 이미지 스타일과 TTS를 추천하는 기능
